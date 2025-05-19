@@ -1,5 +1,6 @@
 const API_BASE = 'https://api.pokemontcg.io/v2/cards';
 
+// === Show Section ===
 function showSection(sectionId) {
   const sections = ['home', 'help', 'about', 'core'];
   sections.forEach(id => {
@@ -17,6 +18,7 @@ function showSection(sectionId) {
   if (sectionId === 'core') loadDeckStats();
 }
 
+// === Search Cards ===
 async function searchCards() {
   const search = document.getElementById('searchInput').value;
   const rarity = document.getElementById('rarityFilter').value;
@@ -24,7 +26,6 @@ async function searchCards() {
   if (rarity) query += ` rarity:${rarity}`;
 
   try {
-    // 🔹 Log search to Supabase
     await fetch('/api/log-search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -44,6 +45,7 @@ async function searchCards() {
   }
 }
 
+// === Display Cards ===
 function displayCards(cards, containerId = 'cardContainer') {
   const container = document.getElementById(containerId);
   container.innerHTML = '';
@@ -60,10 +62,12 @@ function displayCards(cards, containerId = 'cardContainer') {
   });
 }
 
+// === Load Featured Cards from API ===
 async function loadFeaturedCards() {
   try {
     const res = await fetch('/api/featured-cards');
     const result = await res.json();
+
     const formattedCards = result.cards.map(card => ({
       id: card.id,
       name: card.name,
@@ -78,19 +82,7 @@ async function loadFeaturedCards() {
   }
 }
 
-
-
-  const formattedCards = data.map(card => ({
-    id: card.id,
-    name: card.name,
-    rarity: card.rarity,
-    images: { small: card.image_url }
-  }));
-
-  displayCards(formattedCards, 'cardContainer');
-
-
-
+// === Load Deck Stats ===
 async function loadDeckStats() {
   try {
     const res = await fetch(`${API_BASE}?q=supertype:pokemon&pageSize=50`);
@@ -158,9 +150,9 @@ if (SpeechRecognition) {
   voiceBtn.disabled = true;
 }
 
+// === Init ===
 window.addEventListener('DOMContentLoaded', () => {
   loadFeaturedCards();
-
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
