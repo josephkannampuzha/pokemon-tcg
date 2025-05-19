@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>PokéDeck Builder</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#" data-section="home">Home</a></li>
+      <li><a href="#" data-section="help">Help</a></li>
+      <li><a href="#" data-section="about">About</a></li>
+      <li><a href="#" data-section="core">Deck Stats</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Home -->
+    <section id="home">
+      <section class="search">
+        <h1>Search for Pokémon Cards</h1>
+        <input type="text" id="searchInput" placeholder="Enter card name" />
+        <select id="rarityFilter">
+          <option value="">All Rarities</option>
+          <option value="Common">Common</option>
+          <option value="Uncommon">Uncommon</option>
+          <option value="Rare">Rare</option>
+          <option value="Promo">Promo</option>
+        </select>
+        <button id="searchBtn">Search</button>
+        <button id="voiceBtn">🎤 Speak</button>
+        <p id="voiceStatus"></p>
+      </section>
+
+      <section class="featured">
+        <h2>Featured Cards</h2>
+        <div id="cardContainer"></div>
+      </section>
+    </section>
+
+    <!-- Help -->
+    <section id="help" class="hidden">
+      <h1>How to Use PokéDeck Builder</h1>
+      <ol>
+        <li>Use the search bar to look up cards by name.</li>
+        <li>Filter by rarity to narrow down results.</li>
+        <li>View  cards to help build your in real life deck.</li>
+      </ol>
+
+      <h2>FAQ</h2>
+      <p><strong>Q:</strong> Why aren’t some cards loading?</p>
+      <p><strong>A:</strong> The API may limit requests or a card image may be missing.</p>
+
+      <h2>Community Tips</h2>
+      <ul>
+        <li>Do not use more than two different types of energy in a deck.</li>
+        <li>Make sure your deck is balanced with support cards and item cards.</li>
+        <li>Do not fill your deck with a lot of pokemon cards. 10 is enough.</li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="hidden">
+      <h1>About PokéDeck Builder</h1>
+      <p>This web app lets you search, explore, and analyze Pokémon Trading Cards using the Pokémon TCG API.</p>
+      <p>Built with HTML, JavaScript, Chart.js, and Flexbox.</p>
+    </section>
+
+    <!-- Deck Stats -->
+    <section id="core" class="hidden">
+      <h1>Deck Type Distribution</h1>
+      <canvas id="typeChart" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="project.js"></script>
+</body>
+</html>
