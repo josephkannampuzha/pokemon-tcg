@@ -61,23 +61,24 @@ function displayCards(cards, containerId = 'cardContainer') {
 }
 
 async function loadFeaturedCards() {
-  const SUPABASE_URL = 'https://neijeivqdkqdhfkxjqyu.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laWplaXZxZGtxZGhma3hqcXl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2MjExMTYsImV4cCI6MjA2MzE5NzExNn0.rb49nFDQgsn3Lji5_gT6eJM3VC3s9U9iI8Ps6UeNFtU';
-  const { createClient } = supabase; // use if you're importing via CDN
+  try {
+    const res = await fetch('/api/featured-cards');
+    const result = await res.json();
 
-  const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const formattedCards = result.cards.map(card => ({
+      id: card.id,
+      name: card.name,
+      rarity: card.rarity,
+      images: { small: card.image_url }
+    }));
 
-  const { data, error } = await supabaseClient
-    .from('featured_cards')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(6);
-
-  if (error) {
-    console.error('Supabase fetch error:', error);
+    displayCards(formattedCards, 'cardContainer');
+  } catch (error) {
+    console.error('Error loading featured cards:', error);
     alert('Could not load featured cards.');
-    return;
   }
+}
+
 
   const formattedCards = data.map(card => ({
     id: card.id,
@@ -87,7 +88,7 @@ async function loadFeaturedCards() {
   }));
 
   displayCards(formattedCards, 'cardContainer');
-}
+
 
 
 async function loadDeckStats() {
