@@ -3,6 +3,7 @@
   <title>PokéDeck Builder</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="project.css" />
+  <script src="project.js" defer></script>
 </head>
 <body>
   <nav>
@@ -44,7 +45,7 @@
       <ol>
         <li>Use the search bar to look up cards by name.</li>
         <li>Filter by rarity to narrow down results.</li>
-        <li>View  cards to help build your in real life deck.</li>
+        <li>View cards to help build your real-life deck.</li>
       </ol>
 
       <h2>FAQ</h2>
@@ -54,8 +55,8 @@
       <h2>Community Tips</h2>
       <ul>
         <li>Do not use more than two different types of energy in a deck.</li>
-        <li>Make sure your deck is balanced with support cards and item cards.</li>
-        <li>Do not fill your deck with a lot of pokemon cards. 10 is enough.</li>
+        <li>Make sure your deck is balanced with support and item cards.</li>
+        <li>Don't overfill your deck with Pokémon — 10 is often enough.</li>
       </ul>
     </section>
 
@@ -63,7 +64,7 @@
     <section id="about" class="hidden">
       <h1>About PokéDeck Builder</h1>
       <p>This web app lets you search, explore, and analyze Pokémon Trading Cards using the Pokémon TCG API.</p>
-      <p>Built with HTML, JavaScript, Chart.js, and Flexbox.</p>
+      <p>Built with HTML, JavaScript, Chart.js, Supabase, and Flexbox.</p>
     </section>
 
     <!-- Deck Stats -->
@@ -73,7 +74,7 @@
     </section>
   </main>
 
+  <!-- Chart.js for Deck Stats -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="project.js"></script>
 </body>
 </html>
