@@ -6,7 +6,7 @@
   },
   "build": {
     "env": {
-      "SUPABASE_URL": "@SUPABASE_URL",
+      "SUPABASE_URL": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laWplaXZxZGtxZGhma3hqcXl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2MjExMTYsImV4cCI6MjA2MzE5NzExNn0.rb49nFDQgsn3Lji5_gT6eJM3VC3s9U9iI8Ps6UeNFtU",
       "SUPABASE_ANON_KEY": "@SUPABASE_ANON_KEY"
     }
   }
