@@ -1,23 +1,24 @@
 {
-  "name": "inst377final",
+  "name": "pokemon-tcg",
   "version": "1.0.0",
-  "main": "project.js",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/josephkannampuzha/pokemon-tcg.git"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josephkannampuzha/pokemon-tcg.git"
+  },
   "bugs": {
     "url": "https://github.com/josephkannampuzha/pokemon-tcg/issues"
   },
-  "homepage": "https://github.com/josephkannampuzha/pokemon-tcg#readme",
-  "description": "",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.49.4"
-  }
+  "homepage": "https://github.com/josephkannampuzha/pokemon-tcg#readme"
 }
