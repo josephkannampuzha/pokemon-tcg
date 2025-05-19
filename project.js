@@ -64,7 +64,6 @@ async function loadFeaturedCards() {
   try {
     const res = await fetch('/api/featured-cards');
     const result = await res.json();
-
     const formattedCards = result.cards.map(card => ({
       id: card.id,
       name: card.name,
@@ -78,6 +77,7 @@ async function loadFeaturedCards() {
     alert('Could not load featured cards.');
   }
 }
+
 
 
   const formattedCards = data.map(card => ({
